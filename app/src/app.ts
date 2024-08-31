@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import { limiter } from "./middlewares/limiter";
 import cors from "./middlewares/cors";
+import userRouter from "./routes/user.routes";
 
 dotenv.config();
 
@@ -25,5 +26,7 @@ app.get("/", (req, res) => res.send("Running!"));
 
 app.use(limiter);
 app.use(cors);
+
+app.use("/user", userRouter);
 
 export default app;
