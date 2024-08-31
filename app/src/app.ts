@@ -19,6 +19,6 @@ mongoose
   .catch((err) => console.log(err));
 
 // Routes
-app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/", (req, res) => res.send("Running!"));
 
 export default app;
