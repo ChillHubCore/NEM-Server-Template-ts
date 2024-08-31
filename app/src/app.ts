@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
+import { limiter } from "./middlewares/limiter";
+import cors from "./middlewares/cors";
 
 dotenv.config();
 
@@ -20,5 +22,8 @@ mongoose
 
 // Routes
 app.get("/", (req, res) => res.send("Running!"));
+
+app.use(limiter);
+app.use(cors);
 
 export default app;
